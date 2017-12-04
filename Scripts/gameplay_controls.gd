@@ -9,8 +9,8 @@ var bettingUI
 var moneyUI
 var ball
 
-var LEFT_BOUND = 230
-var RIGHT_BOUND = 410
+var LEFT_BOUND = 204
+var RIGHT_BOUND = 436
 var MOVE_SPEED = 1
 
 func _ready():
@@ -39,8 +39,8 @@ func _process(delta):
 func _fixed_process(delta):
 	if(resetBall):
 		resetBall = false
-		ball.set_pos(Vector2(320, 32))
 		ball.set_mode(RigidBody2D.MODE_STATIC)
+		ball.set_global_pos(Vector2(320, 42))
 		bettingPhase = true
 		droppingPhase = false
 	if(droppingPhase):
@@ -60,11 +60,19 @@ func makeBet(amount):
 	moneyUI.bet(amount)
 	bettingPhase = false
 	droppingPhase = true
-	ball.set_mode(RigidBody2D.MODE_KINEMATIC)
+	ball.set_mode(RigidBody2D.MODE_STATIC)
 
 func dropBall():
 	ball.set_mode(RigidBody2D.MODE_RIGID)
 	ball.set_sleeping(false) #Very important otherwise ball won't drop
+	#Add RNG to the dropping
+	var push = (randi() % 2)
+	if(push == 0):
+		push = -1
+	elif(push == 1):
+		push = 1
+	var pushScale = (randi() % 5) + 1
+	ball.apply_impulse(Vector2(), Vector2(push * pushScale, 0))
 	bettingPhase = false
 	droppingPhase = false
 

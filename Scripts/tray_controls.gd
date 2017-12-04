@@ -44,10 +44,9 @@ func _on_Area2D_body_enter( body ):
 func _on_Timer_timeout():
 	#Tray -> Board -> Game
 	var scoreUI = get_parent().get_parent().get_parent().find_node("ScoreUI")
-	print(scoreUI)
 	if type == LOSE:
-		print("Lose")
+		#print("Lose")
 		scoreUI.showLose()
 	elif type == WIN:
-		print("Win")
+		#print("Win")
 		scoreUI.showWin()

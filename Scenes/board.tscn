@@ -1,615 +1,15 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=4 format=1]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/tray.tscn" type="PackedScene" id=2]
-
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 200 )
-
-[sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 32 )
-
-[sub_resource type="RectangleShape2D" id=3]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 200 )
-
-[sub_resource type="RectangleShape2D" id=4]
-
-custom_solver_bias = 0.0
-extents = Vector2( 100, 16 )
-
-[sub_resource type="CircleShape2D" id=5]
-
-custom_solver_bias = 0.0
-radius = 8.0
+[ext_resource path="res://Scenes/tray.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/board_tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://Scenes/peg.tscn" type="PackedScene" id=3]
 
 [node name="Board" type="Node2D"]
 
-[node name="Wall" type="StaticBody2D" parent="." groups=[ "walls" ]]
+[node name="Tray" parent="." groups=[ "trays" ] instance=ExtResource( 1 )]
 
 editor/display_folded = true
-transform/pos = Vector2( -100, 0 )
-input/pickable = false
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Sprite" type="Sprite" parent="Wall"]
-
-transform/pos = Vector2( -0.184606, -0.0452576 )
-transform/scale = Vector2( 0.366639, 6.24696 )
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
-
-shape = SubResource( 1 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Wall3" type="StaticBody2D" parent="." groups=[ "walls" ]]
-
-editor/display_folded = true
-transform/pos = Vector2( -30, 152 )
-input/pickable = false
-shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Sprite" type="Sprite" parent="Wall3"]
-
-transform/pos = Vector2( 0.0366479, -0.260972 )
-transform/scale = Vector2( 0.312926, 0.984071 )
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
-
-shape = SubResource( 2 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Wall4" type="StaticBody2D" parent="." groups=[ "walls" ]]
-
-editor/display_folded = true
-transform/pos = Vector2( 30, 152 )
-input/pickable = false
-shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Sprite" type="Sprite" parent="Wall4"]
-
-transform/pos = Vector2( 0.0366479, -0.260972 )
-transform/scale = Vector2( 0.312926, 0.984071 )
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4"]
-
-shape = SubResource( 2 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Wall1" type="StaticBody2D" parent="." groups=[ "walls" ]]
-
-editor/display_folded = true
-transform/pos = Vector2( 100, 0 )
-input/pickable = false
-shapes/0/shape = SubResource( 3 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Sprite" type="Sprite" parent="Wall1"]
-
-transform/pos = Vector2( -0.184606, -0.0452576 )
-transform/scale = Vector2( 0.366639, 6.24696 )
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall1"]
-
-shape = SubResource( 3 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Wall2" type="StaticBody2D" parent="." groups=[ "walls" ]]
-
-editor/display_folded = true
-transform/pos = Vector2( 0, 200 )
-input/pickable = false
-shapes/0/shape = SubResource( 4 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Sprite" type="Sprite" parent="Wall2"]
-
-transform/pos = Vector2( 0.376709, -0.0755711 )
-transform/scale = Vector2( 3.15123, 0.507654 )
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
-
-shape = SubResource( 4 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Peg" type="StaticBody2D" parent="." groups=[ "pegs" ]]
-
-editor/display_folded = true
-transform/pos = Vector2( -40.4992, -140.139 )
-input/pickable = false
-shapes/0/shape = SubResource( 5 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Sprite" type="Sprite" parent="Peg"]
-
-transform/scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Peg"]
-
-shape = SubResource( 5 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Peg1" type="StaticBody2D" parent="." groups=[ "pegs" ]]
-
-editor/display_folded = true
-transform/pos = Vector2( -0.499222, -140.139 )
-input/pickable = false
-shapes/0/shape = SubResource( 5 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Sprite" type="Sprite" parent="Peg1"]
-
-transform/scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Peg1"]
-
-shape = SubResource( 5 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Peg2" type="StaticBody2D" parent="." groups=[ "pegs" ]]
-
-editor/display_folded = true
-transform/pos = Vector2( 39.5008, -140.139 )
-input/pickable = false
-shapes/0/shape = SubResource( 5 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Sprite" type="Sprite" parent="Peg2"]
-
-transform/scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Peg2"]
-
-shape = SubResource( 5 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Peg3" type="StaticBody2D" parent="." groups=[ "pegs" ]]
-
-editor/display_folded = true
-transform/pos = Vector2( 59.5008, -100.139 )
-input/pickable = false
-shapes/0/shape = SubResource( 5 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Sprite" type="Sprite" parent="Peg3"]
-
-transform/scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Peg3"]
-
-shape = SubResource( 5 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Peg10" type="StaticBody2D" parent="." groups=[ "pegs" ]]
-
-editor/display_folded = true
-transform/pos = Vector2( 59.5008, -0.139038 )
-input/pickable = false
-shapes/0/shape = SubResource( 5 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Sprite" type="Sprite" parent="Peg10"]
-
-transform/scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Peg10"]
-
-shape = SubResource( 5 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Peg4" type="StaticBody2D" parent="." groups=[ "pegs" ]]
-
-editor/display_folded = true
-transform/pos = Vector2( 19.5008, -100.139 )
-input/pickable = false
-shapes/0/shape = SubResource( 5 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Sprite" type="Sprite" parent="Peg4"]
-
-transform/scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Peg4"]
-
-shape = SubResource( 5 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Peg10 2" type="StaticBody2D" parent="." groups=[ "pegs" ]]
-
-editor/display_folded = true
-transform/pos = Vector2( 19.5008, -0.139038 )
-input/pickable = false
-shapes/0/shape = SubResource( 5 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Sprite" type="Sprite" parent="Peg10 2"]
-
-transform/scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Peg10 2"]
-
-shape = SubResource( 5 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Peg5" type="StaticBody2D" parent="." groups=[ "pegs" ]]
-
-editor/display_folded = true
-transform/pos = Vector2( -20.4992, -100.139 )
-input/pickable = false
-shapes/0/shape = SubResource( 5 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Sprite" type="Sprite" parent="Peg5"]
-
-transform/scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Peg5"]
-
-shape = SubResource( 5 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Peg10 3" type="StaticBody2D" parent="." groups=[ "pegs" ]]
-
-editor/display_folded = true
-transform/pos = Vector2( -20.4992, -0.139038 )
-input/pickable = false
-shapes/0/shape = SubResource( 5 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Sprite" type="Sprite" parent="Peg10 3"]
-
-transform/scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Peg10 3"]
-
-shape = SubResource( 5 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Peg6" type="StaticBody2D" parent="." groups=[ "pegs" ]]
-
-editor/display_folded = true
-transform/pos = Vector2( -60.4992, -100.139 )
-input/pickable = false
-shapes/0/shape = SubResource( 5 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Sprite" type="Sprite" parent="Peg6"]
-
-transform/scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Peg6"]
-
-shape = SubResource( 5 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Peg10 4" type="StaticBody2D" parent="." groups=[ "pegs" ]]
-
-editor/display_folded = true
-transform/pos = Vector2( -60.4992, -0.139038 )
-input/pickable = false
-shapes/0/shape = SubResource( 5 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Sprite" type="Sprite" parent="Peg10 4"]
-
-transform/scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Peg10 4"]
-
-shape = SubResource( 5 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Peg7" type="StaticBody2D" parent="." groups=[ "pegs" ]]
-
-editor/display_folded = true
-transform/pos = Vector2( -40.4992, -50.139 )
-input/pickable = false
-shapes/0/shape = SubResource( 5 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Sprite" type="Sprite" parent="Peg7"]
-
-transform/scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Peg7"]
-
-shape = SubResource( 5 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Peg10 5" type="StaticBody2D" parent="." groups=[ "pegs" ]]
-
-editor/display_folded = true
-transform/pos = Vector2( -40.4992, 49.861 )
-input/pickable = false
-shapes/0/shape = SubResource( 5 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Sprite" type="Sprite" parent="Peg10 5"]
-
-transform/scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Peg10 5"]
-
-shape = SubResource( 5 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Peg8" type="StaticBody2D" parent="." groups=[ "pegs" ]]
-
-editor/display_folded = true
-transform/pos = Vector2( -0.499222, -50.139 )
-input/pickable = false
-shapes/0/shape = SubResource( 5 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Sprite" type="Sprite" parent="Peg8"]
-
-transform/scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Peg8"]
-
-shape = SubResource( 5 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Peg10 6" type="StaticBody2D" parent="." groups=[ "pegs" ]]
-
-editor/display_folded = true
-transform/pos = Vector2( -0.499222, 49.861 )
-input/pickable = false
-shapes/0/shape = SubResource( 5 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Sprite" type="Sprite" parent="Peg10 6"]
-
-transform/scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Peg10 6"]
-
-shape = SubResource( 5 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Peg9" type="StaticBody2D" parent="." groups=[ "pegs" ]]
-
-editor/display_folded = true
-transform/pos = Vector2( 39.5008, -50.139 )
-input/pickable = false
-shapes/0/shape = SubResource( 5 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Sprite" type="Sprite" parent="Peg9"]
-
-transform/scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Peg9"]
-
-shape = SubResource( 5 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Peg10 7" type="StaticBody2D" parent="." groups=[ "pegs" ]]
-
-editor/display_folded = true
-transform/pos = Vector2( 39.5008, 49.861 )
-input/pickable = false
-shapes/0/shape = SubResource( 5 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Sprite" type="Sprite" parent="Peg10 7"]
-
-transform/scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Peg10 7"]
-
-shape = SubResource( 5 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Tray" parent="." groups=[ "trays" ] instance=ExtResource( 2 )]
-
-transform/pos = Vector2( 0, 160 )
+transform/pos = Vector2( 0, 169 )
 
 [node name="LoseSprite" parent="Tray"]
 
@@ -619,13 +19,189 @@ visibility/visible = false
 
 visibility/visible = true
 
-[node name="Tray1" parent="." groups=[ "trays" ] instance=ExtResource( 2 )]
+[node name="Tray1" parent="." groups=[ "trays" ] instance=ExtResource( 1 )]
 
-transform/pos = Vector2( -60, 160 )
+transform/pos = Vector2( -97, 169 )
 
-[node name="Tray2" parent="." groups=[ "trays" ] instance=ExtResource( 2 )]
+[node name="Tray2" parent="." groups=[ "trays" ] instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 60, 160 )
+transform/pos = Vector2( 97, 169 )
+
+[node name="TileMap" type="TileMap" parent="." groups=[ "walls" ]]
+
+transform/scale = Vector2( 2, 2 )
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 16, 16 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -327685, 0, -393212, 0, -262149, 1, -327676, 1, -196613, 1, -262140, 1, -131077, 1, -196604, 1, -65541, 1, -131068, 1, -5, 1, -65532, 1, 65531, 1, 4, 1, 131067, 1, 65540, 1, 196603, 1, 131076, 1, 262139, 1, 196612, 1, 327675, 1, 327678, 0, 262145, 0, 262148, 1, 393211, 1, 393214, 0, 327681, 0, 327684, 1, 458747, 0, 458748, 2, 458749, 2, 458750, 0, 458751, 2, 393216, 2, 393217, 0, 393218, 2, 393219, 2, 393220, 0 )
+
+[node name="PegGroup" type="Node2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 0, 20 )
+
+[node name="Peg 2" parent="PegGroup" instance=ExtResource( 3 )]
+
+[node name="Peg21 10" parent="PegGroup" instance=ExtResource( 3 )]
+
+[node name="Peg11" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -40, 0 )
+
+[node name="Peg21 9" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -40, 0 )
+
+[node name="Peg12" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -80, 0 )
+
+[node name="Peg21 8" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -80, 0 )
+
+[node name="Peg13" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 40, 0 )
+
+[node name="Peg21 7" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 40, 0 )
+
+[node name="Peg14" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 80, 0 )
+
+[node name="Peg21 6" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 80, 0 )
+
+[node name="Peg15" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 100, -50 )
+
+[node name="Peg21 5" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 100, -50 )
+
+[node name="Peg16" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 60, -50 )
+
+[node name="Peg21 4" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 60, -50 )
+
+[node name="Peg17" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 20, -50 )
+
+[node name="Peg21 3" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 20, -50 )
+
+[node name="Peg18" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -20, -50 )
+
+[node name="Peg21 2" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -20, -50 )
+
+[node name="Peg19" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -60, -50 )
+
+[node name="Peg21" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -60, -50 )
+
+[node name="Peg20" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -100, -50 )
+
+[node name="Peg21 11" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -100, -50 )
+
+[node name="Peg2112" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -80, -100 )
+
+[node name="Peg2113" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -40, -100 )
+
+[node name="Peg2114" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 0, -100 )
+
+[node name="Peg2115" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 40, -100 )
+
+[node name="Peg2116" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 80, -100 )
+
+[node name="Peg2117" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 100, -150 )
+
+[node name="Peg2118" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 60, -150 )
+
+[node name="Peg2119" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 20, -150 )
+
+[node name="Peg2120" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -20, -150 )
+
+[node name="Peg2121" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -60, -150 )
+
+[node name="Peg2122" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -100, -150 )
+
+[node name="Peg2123" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -100, 50 )
+
+[node name="Peg2124" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -60, 50 )
+
+[node name="Peg2125" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -20, 50 )
+
+[node name="Peg2126" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 20, 50 )
+
+[node name="Peg2127" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 60, 50 )
+
+[node name="Peg2128" parent="PegGroup" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 100, 50 )
 
 [connection signal="body_enter" from="Tray/Area2D" to="Tray/Area2D" method="_on_Area2D_body_enter"]
 

@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/gameplay_controls.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/board.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/ball_controls.gd" type="Script" id=3]
-[ext_resource path="res://Sprites/test_ball.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/ball.png" type="Texture" id=4]
 [ext_resource path="res://font_theme.thm" type="Theme" id=5]
 [ext_resource path="res://Scripts/money_controls.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/score_ui.tscn" type="PackedScene" id=7]
@@ -24,7 +24,7 @@ transform/pos = Vector2( 320, 240 )
 
 [node name="Ball" type="RigidBody2D" parent="." groups=[ "balls" ]]
 
-transform/pos = Vector2( 320, 32 )
+transform/pos = Vector2( 320, 52 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
