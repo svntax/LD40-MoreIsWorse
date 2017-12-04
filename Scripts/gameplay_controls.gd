@@ -17,8 +17,17 @@ func _ready():
 	bettingUI = get_node("CanvasLayer").get_node("BettingUI")
 	moneyUI = get_node("CanvasLayer").get_node("MoneyUI")
 	ball = find_node("Ball")
+	#generateBackground()
 	set_process(true)
 	set_fixed_process(true)
+
+func generateBackground():
+	var bgTile = get_node("CanvasLayer").get_node("BackgroundTile")
+	for i in range(40):
+		for j in range(30):
+			var tileClone = bgTile.duplicate()
+			tileClone.set_pos(bgTile.get_pos() + Vector2(j * 16, i * 32))
+			get_parent().add_child(tileClone)
 
 func modeString(m):
 	if(m == RigidBody2D.MODE_STATIC):
@@ -40,7 +49,8 @@ func _fixed_process(delta):
 	if(resetBall):
 		resetBall = false
 		ball.set_mode(RigidBody2D.MODE_STATIC)
-		ball.set_global_pos(Vector2(320, 42))
+		ball.set_global_pos(Vector2(320, 52))
+		ball.set_rot(0)
 		bettingPhase = true
 		droppingPhase = false
 	if(droppingPhase):
@@ -60,9 +70,11 @@ func makeBet(amount):
 	moneyUI.bet(amount)
 	bettingPhase = false
 	droppingPhase = true
+	ball.get_node("AnimatedSprite").show()
 	ball.set_mode(RigidBody2D.MODE_STATIC)
 
 func dropBall():
+	ball.get_node("AnimatedSprite").hide()
 	ball.set_mode(RigidBody2D.MODE_RIGID)
 	ball.set_sleeping(false) #Very important otherwise ball won't drop
 	#Add RNG to the dropping
@@ -82,3 +94,4 @@ func startNewGame():
 	droppingPhase = false
 	for tray in get_tree().get_nodes_in_group("trays"):
 		tray.get_node("Area2D").reset()
+	ball.entered = false

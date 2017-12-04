@@ -6,7 +6,7 @@ func _ready():
 
 func _process(delta):
 	var container = get_parent().get_node("VBoxContainer");
-	self.set_size(Vector2(container.get_size().width + 8, container.get_size().height + 8))
+	self.set_size(Vector2(container.get_size().width + 12, container.get_size().height + 12))
 	centerDisplay()
 
 func centerDisplay():

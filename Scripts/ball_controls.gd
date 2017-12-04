@@ -1,6 +1,8 @@
 
 extends RigidBody2D
 
+var entered = false
+
 func _ready():
 	set_fixed_process(true)
 

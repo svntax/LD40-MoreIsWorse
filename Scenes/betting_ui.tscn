@@ -124,6 +124,24 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="DebtPrompt" type="Label" parent="VBoxContainer"]
+
+visibility/visible = false
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 26.0
+margin/right = 346.0
+margin/bottom = 44.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Would you like to take a loan\?"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
 
 focus/ignore_mouse = false
@@ -140,12 +158,11 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 placeholder/text = "$"
 placeholder/alpha = 0.6
 align = 1
-max_length = 4
 focus_mode = 2
 caret/caret_blink = false
 caret/caret_blink_speed = 0.65
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="DebtButton" type="Button" parent="VBoxContainer"]
 
 visibility/visible = false
 focus/ignore_mouse = false
@@ -166,9 +183,11 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-text = "Place bet"
+text = "Yes"
 flat = false
 
 [connection signal="text_entered" from="VBoxContainer/LineEdit" to="." method="_on_LineEdit_text_entered"]
+
+[connection signal="pressed" from="VBoxContainer/DebtButton" to="." method="_on_DebtButton_pressed"]
 
 

@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://Scripts/background_anim_controls.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/background_tile04.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/background_tile01.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/background_tile02.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/background_tile03.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ { "frames":[ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 2 ) ], "loop":true, "name":"default", "speed":5.0 } ]
+
+[node name="BackgroundTile" type="Node2D" groups=[ "bg_tiles" ]]
+
+transform/pos = Vector2( 0.157776, 0 )
+script/script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+visibility/visible = false
+texture = ExtResource( 2 )
+region = true
+region_rect = Rect2( 0, 0, 16, 32 )
+
+[node name="Sprite1" type="Sprite" parent="."]
+
+visibility/visible = false
+texture = ExtResource( 3 )
+region = true
+region_rect = Rect2( 0, 0, 16, 32 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+
+visibility/visible = false
+texture = ExtResource( 4 )
+region = true
+region_rect = Rect2( 0, 0, 16, 32 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+
+visibility/visible = false
+texture = ExtResource( 5 )
+region = true
+region_rect = Rect2( 0, 0, 16, 32 )
+
+[node name="Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 0.2
+one_shot = false
+autostart = false
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+
+frames = SubResource( 1 )
+animation = "default"
+
+[node name="Timer 2" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[connection signal="timeout" from="Timer 2" to="." method="_on_Timer_2_timeout"]
+
+

@@ -4,17 +4,17 @@
 [ext_resource path="res://Sprites/wall_tile_middle.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/wall_tile_bottom.png" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="ConvexPolygonShape2D" id=5]
 
 custom_solver_bias = 0.0
-extents = Vector2( 8, 8 )
+points = Vector2Array( -8, 8, -7.92524, -7.32122, -0.11467, -8.30207, 7.90977, -7.47131, 8, 8, -7.98434, 8.02501 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 7, 8 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 8, 7 )
@@ -28,7 +28,7 @@ extents = Vector2( 8, 7 )
 0/occluder_offset = Vector2( 8, 8 )
 0/navigation_offset = Vector2( 8, 8 )
 0/shape_offset = Vector2( 8, 8 )
-0/shapes = [ SubResource( 4 ) ]
+0/shapes = [ SubResource( 5 ) ]
 1/name = "Wall"
 1/texture = ExtResource( 2 )
 1/tex_offset = Vector2( 0, 0 )
@@ -36,7 +36,7 @@ extents = Vector2( 8, 7 )
 1/occluder_offset = Vector2( 8, 8 )
 1/navigation_offset = Vector2( 8, 8 )
 1/shape_offset = Vector2( 8, 8 )
-1/shapes = [ SubResource( 2 ) ]
+1/shapes = [ SubResource( 3 ) ]
 2/name = "Floor"
 2/texture = ExtResource( 3 )
 2/tex_offset = Vector2( 0, 0 )
@@ -44,5 +44,5 @@ extents = Vector2( 8, 7 )
 2/occluder_offset = Vector2( 8, 8 )
 2/navigation_offset = Vector2( 8, 8 )
 2/shape_offset = Vector2( 8, 8 )
-2/shapes = [ SubResource( 3 ) ]
+2/shapes = [ SubResource( 4 ) ]
 

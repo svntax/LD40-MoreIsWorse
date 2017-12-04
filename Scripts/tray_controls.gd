@@ -34,12 +34,13 @@ func setType(t):
 func reset():
 	entered = false
 
-func _on_Area2D_body_enter( body ):
+func _on_Area2D_body_enter(body):
 	if(self.get_instance_ID() != body.get_instance_ID()):
-			if(body.is_in_group("balls") and not entered):
+			if(body.is_in_group("balls") and not entered and not body.entered):
 				var timer = get_parent().get_node("Timer")
 				timer.start()
 				entered = true
+				body.entered = true
 
 func _on_Timer_timeout():
 	#Tray -> Board -> Game

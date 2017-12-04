@@ -2,9 +2,15 @@
 extends Control
 
 var money = 100
+var debt = 0
 var bet = 0
 
+var moneyLabel
+var debtLabel
+
 func _ready():
+	moneyLabel = get_parent().find_node("MoneyLabel")
+	debtLabel = get_parent().find_node("DebtLabel")
 	updateDisplay()
 	set_process(true)
 
@@ -27,8 +33,18 @@ func bet(amount):
 	bet = amount
 	updateDisplay()
 
+func gainDebt(amount):
+	debt += amount
+	money += amount
+	updateDisplay()
+	updateDebtDisplay()
+
 func getMoney():
 	return money
 
 func updateDisplay():
-	get_node("MoneyLabel").set_text("Money: $" + str(money))
+	moneyLabel.set_text("Money: $" + str(money))
+
+func updateDebtDisplay():
+	debtLabel.show()
+	debtLabel.set_text("Debt: $" + str(debt))

@@ -4,17 +4,17 @@
 [ext_resource path="res://Sprites/wall_tile_middle.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/wall_tile_bottom.png" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="ConvexPolygonShape2D" id=5]
 
 custom_solver_bias = 0.0
-extents = Vector2( 8, 8 )
+points = Vector2Array( -8, 8, -7.92524, -7.32122, -0.11467, -8.30207, 7.90977, -7.47131, 8, 8, -7.98434, 8.02501 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 7, 8 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 8, 7 )
@@ -25,14 +25,15 @@ transform/pos = Vector2( 30, 30 )
 
 [node name="WallCorner" type="Sprite" parent="."]
 
+transform/pos = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="WallCorner" groups=[ "walls" ]]
 
 input/pickable = false
-shapes/0/shape = SubResource( 4 )
+shapes/0/shape = SubResource( 5 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
+shapes/0/trigger = true
 collision/layers = 1
 collision/mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
@@ -40,11 +41,12 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WallCorner/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallCorner/StaticBody2D"]
 
-shape = SubResource( 4 )
-trigger = false
-_update_shape_index = 0
+build_mode = 0
+polygon = Vector2Array( -7.98434, 8.02501, 8, 8, 7.90977, -7.47131, -0.11467, -8.30207, -7.92524, -7.32122, -8, 8 )
+shape_range = Vector2( 0, 0 )
+trigger = true
 
 [node name="Wall" type="Sprite" parent="."]
 
@@ -52,30 +54,6 @@ transform/pos = Vector2( 40, 0 )
 texture = ExtResource( 2 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Wall" groups=[ "walls" ]]
-
-input/pickable = false
-shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D"]
-
-shape = SubResource( 2 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Floor" type="Sprite" parent="."]
-
-transform/pos = Vector2( 80, 0 )
-texture = ExtResource( 3 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Floor" groups=[ "walls" ]]
 
 input/pickable = false
 shapes/0/shape = SubResource( 3 )
@@ -88,9 +66,33 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D"]
 
 shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Floor" type="Sprite" parent="."]
+
+transform/pos = Vector2( 80, 0 )
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Floor" groups=[ "walls" ]]
+
+input/pickable = false
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D"]
+
+shape = SubResource( 4 )
 trigger = false
 _update_shape_index = 0
 
