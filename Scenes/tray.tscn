@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://Sprites/red_X.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/white_O.png" type="Texture" id=2]
-[ext_resource path="res://Scripts/tray_controls.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/green_$.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/tray_controls.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -20,6 +21,11 @@ texture = ExtResource( 1 )
 visibility/visible = false
 texture = ExtResource( 2 )
 
+[node name="GreedSprite" type="Sprite" parent="."]
+
+visibility/visible = false
+texture = ExtResource( 3 )
+
 [node name="Area2D" type="Area2D" parent="."]
 
 input/pickable = true
@@ -30,7 +36,7 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-script/script = ExtResource( 3 )
+script/script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 

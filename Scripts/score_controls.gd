@@ -25,6 +25,7 @@ func showWin():
 	winMessage.show()
 	earnings.set_text("Earnings: +$" + str(moneyUI.bet))
 	stopBall()
+	get_node("/root/sound_effects").play("win01")
 
 func showLose():
 	self.show()
@@ -32,6 +33,7 @@ func showLose():
 	winMessage.hide()
 	earnings.set_text("Losses: -$" + str(moneyUI.bet))
 	stopBall()
+	get_node("/root/sound_effects").play("lose01")
 
 #Used so that the ball stops moving when the score UI pops up
 func stopBall():

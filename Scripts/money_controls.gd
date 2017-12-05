@@ -26,7 +26,7 @@ func winMoney():
 	money += bet * 2
 	bet = 0
 	updateDisplay()
-	#TODO play sound for winning money
+	get_node("/root/sound_effects").play("ca_ching01")
 
 func bet(amount):
 	money -= amount
@@ -38,6 +38,10 @@ func gainDebt(amount):
 	money += amount
 	updateDisplay()
 	updateDebtDisplay()
+
+func glitch():
+	moneyLabel.set_text("Money: n o n e")
+	debtLabel.set_text("Debt: e n d l e s s")
 
 func getMoney():
 	return money

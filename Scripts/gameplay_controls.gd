@@ -67,6 +67,7 @@ func _fixed_process(delta):
 			dropBall()
 
 func makeBet(amount):
+	get_node("/root/sound_effects").play("low_blip")
 	moneyUI.bet(amount)
 	bettingPhase = false
 	droppingPhase = true

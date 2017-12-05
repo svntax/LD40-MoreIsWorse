@@ -1,30 +1,31 @@
-[gd_scene load_steps=19 format=1]
+[gd_scene load_steps=20 format=1]
 
 [ext_resource path="res://Scripts/gameplay_controls.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/background_tile.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/board.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/ball_controls.gd" type="Script" id=4]
 [ext_resource path="res://Sprites/ball.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/arrow01.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/arrow02.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/arrow03.png" type="Texture" id=8]
-[ext_resource path="res://font_theme.thm" type="Theme" id=9]
-[ext_resource path="res://Scripts/money_controls.gd" type="Script" id=10]
-[ext_resource path="res://Scripts/money_panel_background.gd" type="Script" id=11]
-[ext_resource path="res://Scenes/score_ui.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenes/betting_ui.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scripts/fade_controls.gd" type="Script" id=14]
+[ext_resource path="res://Sprites/ballGreed.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/arrow01.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/arrow02.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/arrow03.png" type="Texture" id=9]
+[ext_resource path="res://font_theme.thm" type="Theme" id=10]
+[ext_resource path="res://Scripts/money_controls.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/money_panel_background.gd" type="Script" id=12]
+[ext_resource path="res://Scenes/score_ui.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/betting_ui.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scripts/fade_controls.gd" type="Script" id=15]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 8.0
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=2]
 
-animations = [ { "frames":[ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ], "loop":true, "name":"default", "speed":5.0 } ]
+animations = [ { "frames":[ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ], "loop":true, "name":"default", "speed":5.0 } ]
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=3]
 
 content_margin/left = -1.0
 content_margin/right = -1.0
@@ -37,7 +38,7 @@ border_size = 2
 border_blend = false
 draw_bg = true
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=4]
 
 content_margin/left = -1.0
 content_margin/right = -1.0
@@ -621,6 +622,11 @@ script/script = ExtResource( 4 )
 
 texture = ExtResource( 5 )
 
+[node name="GreedSprite" type="Sprite" parent="Ball"]
+
+visibility/visible = false
+texture = ExtResource( 6 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
 
 shape = SubResource( 1 )
@@ -650,14 +656,15 @@ drag_margin/bottom = 0.1
 
 visibility/visible = false
 transform/pos = Vector2( 0, -30 )
-frames = SubResource( 4 )
+frames = SubResource( 2 )
 animation = "default"
+frame = 2
 playing = true
 
 [node name="Sprite 2" type="Sprite" parent="Ball"]
 
 visibility/visible = false
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -672,12 +679,12 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-theme/theme = ExtResource( 9 )
-margin/left = 28.0
-margin/top = 151.0
-margin/right = 68.0
-margin/bottom = 191.0
-script/script = ExtResource( 10 )
+theme/theme = ExtResource( 10 )
+margin/left = 18.0
+margin/top = 141.0
+margin/right = 58.0
+margin/bottom = 181.0
+script/script = ExtResource( 11 )
 
 [node name="Panel" type="Panel" parent="CanvasLayer/MoneyUI"]
 
@@ -689,8 +696,8 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 98.0
 margin/bottom = 32.0
-custom_styles/panel = SubResource( 2 )
-script/script = ExtResource( 11 )
+custom_styles/panel = SubResource( 3 )
+script/script = ExtResource( 12 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MoneyUI"]
 
@@ -737,15 +744,15 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="ScoreUI" parent="CanvasLayer" instance=ExtResource( 12 )]
+[node name="ScoreUI" parent="CanvasLayer" instance=ExtResource( 13 )]
 
 visibility/visible = false
-margin/left = 40.0
+margin/left = 68.0
 margin/top = 40.0
-margin/right = 0.0
+margin/right = 28.0
 margin/bottom = 0.0
 
-[node name="BettingUI" parent="CanvasLayer" instance=ExtResource( 13 )]
+[node name="BettingUI" parent="CanvasLayer" instance=ExtResource( 14 )]
 
 margin/left = 143.0
 margin/top = 201.0
@@ -763,8 +770,8 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 640.0
 margin/bottom = 480.0
-custom_styles/panel = SubResource( 3 )
-script/script = ExtResource( 14 )
+custom_styles/panel = SubResource( 4 )
+script/script = ExtResource( 15 )
 
 [node name="Timer" type="Timer" parent="CanvasLayer/FadePanel"]
 
