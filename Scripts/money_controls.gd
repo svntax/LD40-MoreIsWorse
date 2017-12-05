@@ -26,7 +26,7 @@ func winMoney():
 	money += bet * 2
 	bet = 0
 	updateDisplay()
-	get_node("/root/sound_effects").play("ca_ching01")
+	get_node("/root/sound_effects").play("get_money")
 
 func bet(amount):
 	money -= amount

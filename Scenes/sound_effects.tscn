@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=1]
 
-[ext_resource path="res://Audio/ca_ching01.wav" type="Sample" id=1]
-[ext_resource path="res://Audio/clink_peg.wav" type="Sample" id=2]
+[ext_resource path="res://Audio/clink_peg.wav" type="Sample" id=1]
+[ext_resource path="res://Audio/get_money.wav" type="Sample" id=2]
 [ext_resource path="res://Audio/lose01.wav" type="Sample" id=3]
 [ext_resource path="res://Audio/low_blip.wav" type="Sample" id=4]
 [ext_resource path="res://Audio/thunk_bottom.wav" type="Sample" id=5]
@@ -9,8 +9,8 @@
 
 [sub_resource type="SampleLibrary" id=1]
 
-samples/ca_ching01 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 1 ) }
-samples/clink_peg = { "db":0.0, "pitch":1.0, "sample":ExtResource( 2 ) }
+samples/clink_peg = { "db":0.0, "pitch":1.0, "sample":ExtResource( 1 ) }
+samples/get_money = { "db":0.0, "pitch":1.0, "sample":ExtResource( 2 ) }
 samples/lose01 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 3 ) }
 samples/low_blip = { "db":0.0, "pitch":1.0, "sample":ExtResource( 4 ) }
 samples/thunk_bottom = { "db":0.0, "pitch":1.0, "sample":ExtResource( 5 ) }
